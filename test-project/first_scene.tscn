@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cfgocwcl32luj"]
+
+[ext_resource type="Script" uid="uid://cwchsygi1qusb" path="res://first_scene.gd" id="1_5qpg1"]
+[ext_resource type="Texture2D" uid="uid://c5oty1aqytgbh" path="res://icon.svg" id="1_ngiyr"]
+[ext_resource type="PackedScene" uid="uid://dqn5nxxra3yy4" path="res://godot-robot.tscn" id="2_y5rs1"]
+
+[node name="FirstScene" type="Node2D" unique_id=607652777]
+script = ExtResource("1_5qpg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352642026]
+position = Vector2(84, 103)
+texture = ExtResource("1_ngiyr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1676528315]
+modulate = Color(1, 0.09803922, 0.03137255, 1)
+position = Vector2(603, 423)
+texture = ExtResource("1_ngiyr")
+
+[node name="Node2D" parent="." unique_id=1538420185 instance=ExtResource("2_y5rs1")]
+position = Vector2(143, 67)
+scale = Vector2(0.5, 0.5)
