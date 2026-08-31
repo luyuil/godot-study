@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dse57dah8ap8v"]
+
+[ext_resource type="Texture2D" uid="uid://cyqopkgrpbskv" path="res://graphics/objects/tree1.png" id="1_1wwvk"]
+[ext_resource type="Script" uid="uid://cs2mog6w7rkvy" path="res://scenes/decoration.gd" id="2_cgjip"]
+[ext_resource type="Texture2D" uid="uid://cr43aqopdpxvx" path="res://graphics/objects/tree2.png" id="3_3qy4m"]
+[ext_resource type="Texture2D" uid="uid://cfix5hk4g5ayq" path="res://graphics/objects/box1.png" id="4_chclx"]
+
+[node name="decoration" type="Node2D" unique_id=142980876]
+script = ExtResource("2_cgjip")
+
+[node name="Tree2" type="Sprite2D" parent="." unique_id=1882564659]
+position = Vector2(17, 0)
+texture = ExtResource("3_3qy4m")
+
+[node name="Box1" type="Sprite2D" parent="." unique_id=285041011]
+position = Vector2(9, 22)
+texture = ExtResource("4_chclx")
+
+[node name="Tree1" type="Sprite2D" parent="." unique_id=1354116081]
+texture = ExtResource("1_1wwvk")

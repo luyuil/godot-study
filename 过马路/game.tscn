@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://8xhkkif1qxch"]
+
+[ext_resource type="Texture2D" uid="uid://bxl1ncx185hnb" path="res://graphics/map.png" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cw4cbt7a0k4ay" path="res://scenes/palyer.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://dse57dah8ap8v" path="res://scenes/decoration.tscn" id="3_feb5d"]
+
+[node name="Game" type="Node2D" unique_id=841439719]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=708167897]
+texture = ExtResource("1_80nbo")
+
+[node name="Palyer" parent="." unique_id=1358603997 instance=ExtResource("2_e2o6t")]
+position = Vector2(20, 44)
+
+[node name="decoration" parent="." unique_id=142980876 instance=ExtResource("3_feb5d")]
+position = Vector2(103, 238)
