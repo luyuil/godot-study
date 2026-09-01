@@ -1,10 +1,145 @@
 [gd_scene format=3 uid="uid://cw4cbt7a0k4ay"]
 
-[ext_resource type="Texture2D" uid="uid://x07mhg0hud7s" path="res://graphics/player/player_simple.png" id="1_7ruv0"]
-[ext_resource type="Script" uid="uid://qhgfgn68vpve" path="res://scenes/player.gd" id="2_srq6k"]
+[ext_resource type="Script" uid="uid://cx5ebhemrnovs" path="res://scenes/palyer.gd" id="1_cnjcc"]
+[ext_resource type="Texture2D" uid="uid://c5w3t0nhga2xy" path="res://graphics/player/player_tileset.png" id="2_srq6k"]
 
-[node name="Palyer" type="Node2D" unique_id=1358603997]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f67h"]
+size = Vector2(12, 10)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=988476053]
-texture = ExtResource("1_7ruv0")
-script = ExtResource("2_srq6k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_psos0"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37i00"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3rlw"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srq6k"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnjcc"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl2mc"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vpto"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqdyy"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaty2"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwruk"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8t1n"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px84c"]
+atlas = ExtResource("2_srq6k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8f67h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psos0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37i00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psos0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3rlw")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srq6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnjcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srq6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl2mc")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vpto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqdyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vpto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaty2")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwruk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8t1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwruk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px84c")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Palyer" type="CharacterBody2D" unique_id=2079041363]
+script = ExtResource("1_cnjcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1805780087]
+shape = SubResource("RectangleShape2D_8f67h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2043267784]
+zoom = Vector2(4, 4)
+limit_left = -192
+limit_top = -320
+limit_right = 192
+limit_bottom = 320
+position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=400651209]
+sprite_frames = SubResource("SpriteFrames_8f67h")
+animation = &"left"
+autoplay = "left"

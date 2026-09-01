@@ -1,16 +1,58 @@
 [gd_scene format=3 uid="uid://8xhkkif1qxch"]
 
 [ext_resource type="Texture2D" uid="uid://bxl1ncx185hnb" path="res://graphics/map.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://8ofkc116ag8b" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cw4cbt7a0k4ay" path="res://scenes/palyer.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://dse57dah8ap8v" path="res://scenes/decoration.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dse57dah8ap8v" path="res://scenes/tree.tscn" id="3_feb5d"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8f67h"]
+a = Vector2(7, -247)
+b = Vector2(7, 398)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_op28x"]
+a = Vector2(-194, -322)
+b = Vector2(193, -321)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rt84h"]
+a = Vector2(-194, 322)
+b = Vector2(194, 322)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4nysl"]
+a = Vector2(193, 324)
+b = Vector2(193, -321)
 
 [node name="Game" type="Node2D" unique_id=841439719]
+script = ExtResource("1_fc0e3")
+metadata/_edit_vertical_guides_ = [-192.0]
+metadata/_edit_horizontal_guides_ = [-320.0]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=708167897]
+[node name="BG" type="Sprite2D" parent="." unique_id=708167897]
 texture = ExtResource("1_80nbo")
 
 [node name="Palyer" parent="." unique_id=1358603997 instance=ExtResource("2_e2o6t")]
 position = Vector2(20, 44)
 
-[node name="decoration" parent="." unique_id=142980876 instance=ExtResource("3_feb5d")]
+[node name="Tree" parent="." unique_id=142980876 instance=ExtResource("3_feb5d")]
 position = Vector2(103, 238)
+
+[node name="borders" type="Node2D" parent="." unique_id=1550572604]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="borders" unique_id=694037481]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/StaticBody2D" unique_id=1136923354]
+position = Vector2(-201, -75)
+shape = SubResource("SegmentShape2D_8f67h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="borders/StaticBody2D" unique_id=1311861654]
+shape = SubResource("SegmentShape2D_op28x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="borders/StaticBody2D" unique_id=1232667288]
+shape = SubResource("SegmentShape2D_rt84h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="borders/StaticBody2D" unique_id=1963831379]
+shape = SubResource("SegmentShape2D_4nysl")
+
+[node name="Timer" type="Node" parent="." unique_id=173190713]
+
+[node name="Car_Timer" type="Timer" parent="Timer" unique_id=235890394]
+autostart = true
