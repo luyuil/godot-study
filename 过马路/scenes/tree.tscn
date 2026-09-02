@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://cs2mog6w7rkvy" path="res://scenes/tree.gd" id="2_cgjip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8f67h"]
-size = Vector2(12, 20)
+size = Vector2(10, 16)
 
 [node name="tree" type="StaticBody2D" unique_id=1061997228]
+collision_mask = 0
 script = ExtResource("2_cgjip")
 
 [node name="Tree1" type="Sprite2D" parent="." unique_id=1354116081]

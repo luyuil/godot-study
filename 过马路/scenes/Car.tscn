@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dj2am2kmv011n"]
+
+[ext_resource type="Texture2D" uid="uid://5ilkrpgwaqae" path="res://graphics/cars/yellow.png" id="1_7u4s5"]
+[ext_resource type="Script" uid="uid://72uces4pmm8i" path="res://scenes/car.gd" id="1_ys5ts"]
+[ext_resource type="AudioStream" uid="uid://67kbgqyrnixo" path="res://audio/car.mp3" id="3_qn377"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f67h"]
+size = Vector2(24, 11)
+
+[node name="Car" type="Area2D" unique_id=39793226]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ys5ts")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=262764079]
+texture = ExtResource("1_7u4s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1900356136]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_8f67h")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1785101526]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1729303536]
+stream = ExtResource("3_qn377")
+volume_db = -20.0
+autoplay = true
+max_distance = 100.0
+parameters/looping = true
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
